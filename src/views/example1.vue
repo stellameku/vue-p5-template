@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div class="p5Canvas"></div>
+    <div class="p5Canvas">
+    </div>
   </div>
 </template>
 
@@ -18,28 +19,56 @@ export default {
         let w = 500;
         let h = 400;
 
+
         // let w = window.innerWidth;
         // let h = window.innerHeight;
 
         p5.setup = () => {
-            p5.createCanvas(w, h);
+            p5. createCanvas(710, 400, p5.WEBGL);
+
         };
 
         p5.draw = () => {
-            // call your method:
-            p5.changeBG(p5.mouseX, p5.mouseY);
-            
-            // p5.background(33, 33, 33);
-            p5.ellipse(p5.mouseX, p5.mouseY, 100);
+            p5.background(250);
+            p5.translate(-240, -100, 0);
+            p5.normalMaterial();
+           
+
+            p5.translate(240, 0, 0);
+            p5.push();
+            p5.rotateZ(p5.frameCount * 0.01);
+            p5.rotateX(p5.frameCount * 0.01);
+            p5.rotateY(p5.frameCount * 0.01);
+            p5.box(70, 70, 70);
+            p5.pop();
+
+            p5.translate(240, 0, 0);
+            p5.push();
+            p5.rotateZ(p5.frameCount * 0.01);
+            p5.rotateX(p5.frameCount * 0.01);
+            p5.rotateY(p5.frameCount * 0.01);
+            p5.cylinder(70, 70);
+            p5.pop();
+
+            p5.translate(-240 * 2, 200, 0);
+            p5.push();
+            p5.rotateZ(p5.frameCount * 0.01);
+            p5.rotateX(p5.frameCount * 0.01);
+            p5.rotateY(p5.frameCount * 0.01);
+            p5.cone(70, 70);
+            p5.pop();
+
+            p5.translate(240, 0, 0);
+            p5.push();
+            p5.rotateZ(p5.frameCount * 0.01);
+            p5.rotateX(p5.frameCount * 0.01);
+            p5.rotateY(p5.frameCount * 0.01);
+            p5.torus(70, 20);
+            p5.pop();
 
         };
 
-        // create methods:
-        p5.changeBG = (x, y) => {
-          let _x = p5.map(x, 0, w, 0, 255);
-          let _y = p5.map(y, 0, h, 0, 255);
-          p5.background(_x, _y, 33);
-        }
+       
     }
 
     this.p5Canvas = new P5(sketch, 'p5Canvas');

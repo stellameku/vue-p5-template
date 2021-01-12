@@ -1,9 +1,6 @@
 <template>
-  <h1>P5.js on Vue3 Template</h1>
   <div id="nav">
-    <router-link to="/">Example 1</router-link> |
-    <router-link to="/example2">Example 2</router-link> |
-    <router-link to="/example3">Example 3</router-link>
+    <router-link to="/">Homework</router-link> 
   </div>
   <router-view :key="$route.fullPath"/>
 </template>
